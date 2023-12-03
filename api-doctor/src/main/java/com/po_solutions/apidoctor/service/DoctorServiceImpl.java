@@ -120,6 +120,8 @@ public class DoctorServiceImpl implements DoctorService {
 		doctor.setPassword(requestMap.get("password").toString());
 		doctor.setLicenseNumber(requestMap.get("licenseNumber").toString());
 		doctor.setAddress(requestMap.get("address").toString());
+		doctor.setCity(requestMap.get("city").toString());
+		doctor.setGender(requestMap.get("gender").toString());
 		doctor.setQualification(requestMap.get("qualification").toString());
 		doctor.setSpecialization(requestMap.get("specialization").toString());
 		doctor.setExperienceInYears(requestMap.get("experienceInYears").toString());

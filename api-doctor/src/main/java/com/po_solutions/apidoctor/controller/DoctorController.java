@@ -42,21 +42,29 @@ public class DoctorController {
 		
 		return new ResponseEntity<Doctor>(HttpStatus.BAD_REQUEST);
 	}
+
+	/*
+	 * @PostMapping("/new")
+	 * 
+	 * @ResponseBody public String saveDoctorDetails(@RequestBody Doctor doctor){
+	 * System.out.println(doctor); doctorService.saveDoctorDetails(doctor);
+	 * 
+	 * return "Doctor details Saved successfully."; }
+	 */
+	
+	
 	@PostMapping("/new")
 	@ResponseBody
-	public String saveDoctorDetails(@RequestBody Doctor doctor){		 
-		System.out.println(doctor);
-		doctorService.saveDoctorDetails(doctor);
-		
-		return "Doctor details Saved successfully.";
-	}
-	@PostMapping("/newA")
-	@ResponseBody
-	public String saveDoctorDetailsMap(@RequestBody Map<String, Object> reMap){		 
+	public ResponseEntity<Doctor> createNewDoctor(@RequestBody Map<String, Object> reMap){		 
 		System.out.println(reMap);
-		doctorService.createNewDoctor(reMap);
+		Doctor doctor	= doctorService.createNewDoctor(reMap);
 		
-		return "Doctor details Saved successfully.";
+		if(doctor != null )
+		{
+			return new ResponseEntity<Doctor>(doctor,HttpStatus.OK);
+		}
+		
+		return  new ResponseEntity<Doctor>(HttpStatus.BAD_REQUEST);
 	}
 
 }
