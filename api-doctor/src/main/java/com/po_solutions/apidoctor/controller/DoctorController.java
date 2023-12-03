@@ -4,6 +4,9 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,16 +23,24 @@ public class DoctorController {
 	
 	@Autowired
 	DoctorService doctorService;
-	@RequestMapping("/Welcome")
-	@ResponseBody
-	public String welcomeDoctor(){		 
-		return "Welcome Doctor";
+	
+	@GetMapping("/Welcome")
+	public ResponseEntity<String> welcomeDoctor(){		 
+		return new ResponseEntity<String>("Welcome Doctor",HttpStatus.OK);
 	}
 	
 	@RequestMapping("/{doctorId}")
 	@ResponseBody
-	public Optional<Doctor> getDoctorDetails(@PathVariable("doctorId") Long doctorId){		 
-		return doctorService.getDoctorDetailsbyId(doctorId);
+	public ResponseEntity<Doctor> getDoctorDetails(@PathVariable("doctorId") Long doctorId){	
+		
+		Doctor doctor =   doctorService.getDoctorDetailsbyId(doctorId).orElse(null);
+		
+		if(doctor != null)
+		{
+			return new ResponseEntity<Doctor>(doctor,HttpStatus.OK);
+		}	
+		
+		return new ResponseEntity<Doctor>(HttpStatus.BAD_REQUEST);
 	}
 	@PostMapping("/new")
 	@ResponseBody
