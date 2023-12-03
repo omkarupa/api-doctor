@@ -39,5 +39,13 @@ public class DoctorController {
 		
 		return "Doctor details Saved successfully.";
 	}
+	@PostMapping("/newA")
+	@ResponseBody
+	public String saveDoctorDetailsMap(@RequestBody Map<String, Object> reMap){		 
+		System.out.println(reMap);
+		doctorService.createNewDoctor(reMap);
+		
+		return "Doctor details Saved successfully.";
+	}
 
 }
