@@ -52,6 +52,7 @@ public class PatientServiceImpl implements PatientService {
 					requestMap.get("bloodGroup") != null &&
 					requestMap.get("gender") != null) {
 				
+				
 				Patient patient = convertPatientFromMap(requestMap);
 				
 				log.info("Patient info Before Save {}" + patient.toString());
@@ -113,5 +114,6 @@ public class PatientServiceImpl implements PatientService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }
