@@ -12,7 +12,7 @@ import com.po_solution.apipatient.client.entity.Doctor;
 
 @RestController
 @RequestMapping("/api-patient")
-public class DoctorController {
+public class DoctorClientController {
 	
 	@Autowired
 	DoctorClient client;
