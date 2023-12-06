@@ -2,6 +2,7 @@ package com.po_solution.apipatient.service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -92,9 +93,11 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public List<Patient> getPatientById(String patientId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Patient getPatientById(Long patientId) {
+		
+		Optional<Patient> patient =  patientRepo.findById(patientId);
+		
+		return patient.get();
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public interface PatientService {
 	
 	public Patient convertPatientFromMap(Map<String, String> requestMap);
 	
-	public List<Patient> getPatientById(String patientId);
+	public Patient getPatientById(Long patientId);
 	
 	public List<Patient> getAllPatients();
 	
