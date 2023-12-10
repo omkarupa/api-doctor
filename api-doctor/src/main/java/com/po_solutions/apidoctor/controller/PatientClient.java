@@ -16,7 +16,7 @@ public interface PatientClient {
 	public ResponseEntity<String> patientURL();
 	
 	@GetMapping("/api-patient/patient/{patient-id}")
-	public ResponseEntity<Patient> getPatientByPatientId(@PathVariable String patientIdString);
+	public ResponseEntity<Patient> getPatientByPatientId(@PathVariable("patient-id") String patientIdString);
 
 
 }

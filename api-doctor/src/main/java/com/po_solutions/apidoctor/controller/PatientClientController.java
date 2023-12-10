@@ -17,18 +17,21 @@ public class PatientClientController {
 	@Autowired
 	PatientClient client;
 	
-	@GetMapping("patient-client/welcome")
+	@GetMapping("/patient-client/welcome")
 	public ResponseEntity<String> weilcomePatient(){
 		return client.patientURL();
 	}
 	
-	@GetMapping("Patient-client/")
+	@GetMapping("Patient-client/{doctorId}")
 	public ResponseEntity<Patient> getPatientDetails(@PathVariable("doctorId") String doctorId){
-		ResponseEntity<Patient> patient=  client.getPatientByPatientId(doctorId);
-		patient.getBody();
-		if(null!=patient)
-			return patient;
-		return new ResponseEntity<Patient>(org.springframework.http.HttpStatus.BAD_REQUEST);
+		 
+		System.out.println("Patient fetch");
+		  ResponseEntity<Patient> patient= client.getPatientByPatientId(doctorId);
+		  patient.getBody(); 
+		  if(null!=patient) 
+			  return patient; 
+		  return new ResponseEntity<Patient>(org.springframework.http.HttpStatus.BAD_REQUEST);
+		 
 		
 	}
 	
