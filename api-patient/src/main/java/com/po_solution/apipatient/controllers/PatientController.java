@@ -43,7 +43,7 @@ public class PatientController {
 	 }
 		 
 	 @GetMapping("/patient/{patient-id}")
-	 public ResponseEntity<Patient> getPatientByPatientId(@PathVariable String patientIdString)
+	 public ResponseEntity<Patient> getPatientByPatientId(@PathVariable("patient-id") String patientIdString)
 	 {
 		 if(patientIdString != null)
 		 {
