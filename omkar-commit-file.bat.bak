@@ -1,5 +1,5 @@
 git add .
-git commit -a -m "commit file batch created";
+git commit -m "commit file batch created";
 
 git push origin omkar-branch-1;
 
