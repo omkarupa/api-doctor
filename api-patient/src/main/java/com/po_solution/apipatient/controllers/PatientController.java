@@ -22,7 +22,7 @@ public class PatientController {
 	@Autowired
 	PatientService service;
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public ResponseEntity<String> patientURL()
 	{
 		return new ResponseEntity<String>("Welcome to Patient API",HttpStatus.OK);

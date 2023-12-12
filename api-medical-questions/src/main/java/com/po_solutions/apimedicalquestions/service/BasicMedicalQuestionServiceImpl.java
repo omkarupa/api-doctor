@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.po_solutions.apimedicalquestions.client.PatientServiceImpl;
 import com.po_solutions.apimedicalquestions.client.entity.Patient;
@@ -13,6 +15,7 @@ import com.po_solutions.apimedicalquestions.entity.BasicMedicalQuestion;
 import com.po_solutions.apimedicalquestions.pojo.MedicalQuestionPojo;
 import com.po_solutions.apimedicalquestions.repository.BasicMedicalQuestionRepository;
 
+@Service
 public class BasicMedicalQuestionServiceImpl implements BasicMedicalQuestionService {
 	
 	
@@ -162,6 +165,13 @@ private List<BasicMedicalQuestion> convertBasicMedicalQuestion(List<Map<String, 
 		
 		return question;
 		
+		
+	}
+
+	@Override
+	public ResponseEntity<String> welcomeFromPatientAPI() {
+		
+		return new ResponseEntity<String> (patientService.getPatientAPIWelcomeMessage(),HttpStatus.OK);
 		
 	}
 

@@ -13,7 +13,7 @@ import com.po_solutions.apimedicalquestions.client.entity.Patient;
 @Service
 public interface PatientClient{
 	
-	@GetMapping("/api-patient")
+	@GetMapping("/api-patient/")
 	public ResponseEntity<String> patientURL();
 	
 	 @GetMapping("/patient/{patient-id}")

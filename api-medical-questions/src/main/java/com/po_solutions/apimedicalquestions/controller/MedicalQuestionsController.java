@@ -32,7 +32,14 @@ public class MedicalQuestionsController {
 		return new ResponseEntity<String>("Welcome to API Medical Questions",HttpStatus.OK);
 	}
 	
-	@PostMapping("/patient-id/{patientId}")
+	@GetMapping("/patient/welcome")
+	public ResponseEntity<String> welcomePatientAPI()
+	{
+		
+		return medicalQuestionService.welcomeFromPatientAPI();
+	}
+	
+	@PostMapping("/patient/{patientId}")
 	public ResponseEntity<MedicalQuestionPojo> createMedicalQuestionAnswersFromPatient(@PathVariable String patientId,@RequestBody Map<String, Object> requestMap)
 	{
 		
