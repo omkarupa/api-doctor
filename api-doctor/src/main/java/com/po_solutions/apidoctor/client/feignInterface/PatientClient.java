@@ -1,4 +1,4 @@
-package com.po_solutions.apidoctor.controller;
+package com.po_solutions.apidoctor.client.feignInterface;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

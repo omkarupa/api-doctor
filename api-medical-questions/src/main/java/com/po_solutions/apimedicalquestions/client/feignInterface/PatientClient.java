@@ -1,4 +1,4 @@
-package com.po_solutions.apimedicalquestions.client;
+package com.po_solutions.apimedicalquestions.client.feignInterface;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

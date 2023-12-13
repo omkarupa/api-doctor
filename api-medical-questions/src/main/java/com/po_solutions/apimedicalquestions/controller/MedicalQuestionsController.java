@@ -23,6 +23,8 @@ public class MedicalQuestionsController {
 	
 	@Autowired
 	BasicMedicalQuestionService medicalQuestionService;
+	
+	
 
 	
 	@GetMapping("")
@@ -32,27 +34,9 @@ public class MedicalQuestionsController {
 		return new ResponseEntity<String>("Welcome to API Medical Questions",HttpStatus.OK);
 	}
 	
-	@GetMapping("/patient/welcome")
-	public ResponseEntity<String> welcomePatientAPI()
-	{
-		
-		return medicalQuestionService.welcomeFromPatientAPI();
-	}
 	
-	@PostMapping("/patient/{patientId}")
-	public ResponseEntity<MedicalQuestionPojo> createMedicalQuestionAnswersFromPatient(@PathVariable String patientId,@RequestBody Map<String, Object> requestMap)
-	{
-		
-		MedicalQuestionPojo medicalQuestionPojo =  medicalQuestionService.getQuestionListUI(patientId, requestMap);
-		
-		if(medicalQuestionPojo != null)
-		{
-			return new ResponseEntity<MedicalQuestionPojo>(medicalQuestionPojo,HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<MedicalQuestionPojo>(HttpStatus.BAD_REQUEST);
-		
-	}
+	
+	
 	
 	
 }

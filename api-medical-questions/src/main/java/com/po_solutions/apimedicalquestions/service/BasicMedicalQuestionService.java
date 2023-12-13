@@ -14,7 +14,7 @@ public interface BasicMedicalQuestionService {
 	
 	public MedicalQuestionPojo getQuestionListUI(String patientId, Map<String, Object> requestMap);
 	
-	public ResponseEntity<String> welcomeFromPatientAPI();
+	
 
 
 }

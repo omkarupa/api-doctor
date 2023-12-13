@@ -1,7 +1,8 @@
-package com.po_solutions.apidoctor.controller;
+package com.po_solutions.apidoctor.client.controller;
 
-import org.apache.hc.core5.http.HttpStatus;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.po_solutions.apidoctor.client.entity.Patient;
+import com.po_solutions.apidoctor.client.feignInterface.PatientClient;
 
 @RestController
 @RequestMapping("api-doctor")
@@ -30,7 +32,7 @@ public class PatientClientController {
 		  patient.getBody(); 
 		  if(null!=patient) 
 			  return patient; 
-		  return new ResponseEntity<Patient>(org.springframework.http.HttpStatus.BAD_REQUEST);
+		  return new ResponseEntity<Patient>(HttpStatus.BAD_REQUEST);
 		 
 		
 	}
